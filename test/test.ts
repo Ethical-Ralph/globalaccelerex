@@ -27,4 +27,14 @@ describe("Tests", () => {
         done();
       });
   });
+
+  test("Blocked by cors", (done) => {
+    chai
+      .request(app)
+      .get("/cors_protected")
+      .end((err, res) => {
+        expect(res.status).to.equal(500);
+        done();
+      });
+  });
 });

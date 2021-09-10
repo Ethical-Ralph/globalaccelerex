@@ -37,4 +37,15 @@ describe("Tests", () => {
         done();
       });
   });
+
+  test("Allowed by cors", (done) => {
+    chai
+      .request(app)
+      .get("/cors_protected")
+      .set("x-forwarded-for", "127.0.0.1")
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        done();
+      });
+  });
 });

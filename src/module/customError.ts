@@ -1,8 +1,8 @@
 export class CustomError extends Error {
   public status: number;
   constructor(public message: string) {
-    super();
+    super(message);
     this.message = message;
-    this.status = 404;
+    this.status = 500;
   }
 }
